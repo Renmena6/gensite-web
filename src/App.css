@@ -1,0 +1,12 @@
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth !important;
+  }
+}
+
+/* Si Tailwind está molestando, esto lo arregla a nivel raíz */
+html, body {
+  height: 100%;
+  scroll-behavior: smooth !important;
+}
