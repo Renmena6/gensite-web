@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import IASolutions from './components/IASolutions';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Services />
 
       <IASolutions />
+      <Contact/>
     </Layout>
   );
 }
