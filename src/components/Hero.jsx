@@ -10,7 +10,7 @@ const Hero = () => {
   style={{ backgroundImage: "url('/img/banner1.jpeg')" }}
 >
   {/* El degradado (Overlay) */}
-  <div className="absolute inset-0 bg-linear-to-b from-slate-980/40 via-transparent to-slate-950/90"></div>
+  <div className="absolute inset-0 bg-linear-to-b from-slate-980/40 via-transparent to-slate-950/20"></div>
 </div>
 
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
@@ -20,10 +20,17 @@ const Hero = () => {
         </span>
 
         {/* Título Principal - Cambiado a blanco para fondo oscuro */}
-        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1]">
-          Automatiza tu éxito con <br />
-          <span className="text-blue-500">Webs Inteligentes</span>
-        </h1>
+<h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1]">
+  Automatiza tu éxito con <br />
+  <span 
+    className="text-blue-500"
+    style={{ 
+      textShadow: '0px 0px 1px rgba(0, 0, 0, 5), 0px 1px 1px rgba(0, 0, 0, 5)' 
+    }}
+  >
+    Webs Inteligentes
+  </span>
+</h1>
 
         {/* Descripción - Color suavizado para fondo oscuro */}
         <p className="text-xl text-slate-300 max-w-2xl mb-10">
@@ -40,12 +47,13 @@ const Hero = () => {
             Empezar ahora
           </a>
 
-          <a
+           <a
             href="#servicios"
-            className="bg-white/5 backdrop-blur-md border-2 border-white/10 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 hover:border-blue-500 transition-all inline-block text-center"
+            className="bg-gray-800 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 shadow-xl shadow-blue-500/20 transition-all hover:-translate-y-1 inline-block text-center"
           >
-            Ver servicios
+            Servicios
           </a>
+
         </div>
       </div>
     </header>
