@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Navbar = () => {
   return (
     <nav className="flex justify-between items-center px-8 bg-white shadow-sm sticky top-0 z-50 h-20"> {/* Altura del nav fija */}
