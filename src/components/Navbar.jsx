@@ -17,7 +17,7 @@ const Navbar = () => {
         </li>
         
         <li className="hover:text-blue-600 transition">
-          <a href="#ia-solutions">IA Solutions</a>
+          <a href="#servicios">Nuestros Servicios</a>
         </li>
         
         <li className="hover:text-blue-600 transition">
