@@ -4,15 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
     <title>gensite-web</title>
+
+    <style>
+      /* Suavizado de scroll */
+      html {
+        scroll-behavior: smooth ;
+      }
+
+      /* Aplicación forzada de DM Sans a todo el sitio */
+      body, button, input, select, textarea {
+        font-family: 'DM Sans', sans-serif ;
+      }
+
+      /* Aplicación forzada de Montserrat a todos los encabezados */
+      h1, h2, h3, h4, h5, h6, .font-title {
+        font-family:sans-serif;
+        font-weight: 800 ;
+        letter-spacing: -0.02em ;
+      }
+
+      /* Ajuste opcional para párrafos con Raleway si preferís */
+      p {
+        font-family: 'DM Sans', sans-serif !important; /* DM Sans es más legible que Raleway para web */
+        line-height: 1.6;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <style>
-  html {
-    scroll-behavior: smooth !important;
-  }
-</style>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
