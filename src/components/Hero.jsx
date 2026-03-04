@@ -6,8 +6,8 @@ const Hero = () => {
       
       {/* Fondo con Efecto de Scroll usando solo Tailwind */}
 <div 
-  className="absolute inset-0 z-0 opacity-60 bg-fixed bg-center bg-cover"
-  style={{ backgroundImage: "url('/img/banner1.jpeg')" }}
+  className="absolute inset-0 z-0 opacity-40 bg-fixed bg-center bg-cover"
+  style={{ backgroundImage: "url('/img/banner2.jpeg')" }}
 >
   {/* El degradado (Overlay) */}
   <div className="absolute inset-0 bg-linear-to-b from-slate-980/40 via-transparent to-slate-950/20"></div>
@@ -49,7 +49,7 @@ const Hero = () => {
 
            <a
             href="#servicios"
-            className="bg-gray-800 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 shadow-xl shadow-blue-500/20 transition-all hover:-translate-y-1 inline-block text-center"
+            className="bg-gray-800 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 shadow-xl shadow-blue-400/10 transition-all hover:-translate-y-1 inline-block text-center"
           >
             Servicios
           </a>
