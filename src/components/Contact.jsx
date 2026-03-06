@@ -4,7 +4,7 @@ import { HiOutlineArrowRight } from 'react-icons/hi';
 
 const Contact = () => {
   const whatsappNumber = "543400443605";
-  const email = "renzomena6@gmail.com";
+  const email = "gensite.info@gmail.com";
   const message = encodeURIComponent("Hola GenSite, vi tu web y me gustaría automatizar mi negocio.");
 
   return (
@@ -57,7 +57,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white Montserrat uppercase tracking-tight">Email</h3>
-                <p className="text-slate-400 text-sm">renzomena6@gmail.com</p>
+                <p className="text-slate-400 text-sm">gensite.info@gmail.com</p>
               </div>
             </div>
 

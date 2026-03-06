@@ -1,14 +1,18 @@
 import React from "react";
-import Navbar from "./Navbar"; // Agregamos el punto: ./ significa "esta misma carpeta"
-import Footer from "./Footer"; // Agregamos el punto: ./
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+// Agregamos { showNavbar = true } para controlar la visibilidad
+const Layout = ({ children, showNavbar = true }) => {
   return (
     <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
-      <Navbar />
+      {/* Solo se renderiza si showNavbar es true */}
+      {showNavbar && <Navbar />}
+      
       <main className="grow">
         {children}
       </main>
+      
       <Footer />
     </div>
   );

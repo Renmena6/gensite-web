@@ -10,21 +10,21 @@ const Projects = () => {
       tags: ["React", "Tailwind", "Framer Motion"],
       link: "https://cava-arch.vercel.app/"
     },
-    {
-      title: "Agente de IA Inmobiliario",
-      category: "Automatización",
-      description: "Sistema inteligente de calificación de leads y agendamiento automático vía WhatsApp para brokers.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800",
-      tags: ["OpenAI", "Python", "Webhooks"],
-      link: "#"
+{
+      title: "Maini | Ingeniería & Topografía",
+      category: "Solución Corporativa",
+      description: "Dashboard informativo especializado en software técnico y soluciones avanzadas para el sector industrial.",
+      image: "/img/TSIT.png", // Nombre de la imagen que me pasaste
+      tags: ["Business Intelligence", "Dashboard interactivo", "Data Visualization"],
+      link: "https://sites.google.com/view/maini-ingenieria/p%C3%A1gina-principal"
     },
-    {
-      title: "E-commerce con Predicción",
-      category: "IA Aplicada",
-      description: "Tienda online con motor de recomendaciones basado en comportamiento de compra en tiempo real.",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800",
-      tags: ["Next.js", "Node.js", "ML"],
-      link: "#"
+ {
+      title: "Sitelog Pro | Libro de Obra Digital",
+      category: "Backend & Gestión",
+      description: "Solución diseñada para eliminar el uso de papel en la construcción. Permite el registro estructurado de eventos en obra.",
+      image: "/img/Sitelog.jpeg", // Podés cambiarla por una captura propia
+      tags: ["PropTech", "SaaS MVP", "Trazabilidad Total"],
+      link: "https://sitelog-pro.lovable.app/login"
     }
   ];
 
