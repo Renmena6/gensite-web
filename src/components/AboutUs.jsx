@@ -18,7 +18,7 @@ const AboutUs = () => {
               <span className="text-blue-600">resultados</span>.
             </h3>
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-2xl">
-              Somos un equipo enfocado en el desarrollo web, Software y soluciones digitales para empresas que buscan 
+              Somos un equipo enfocado en el desarrollo web, software y soluciones digitales para empresas que buscan 
               <strong> optimizar sus procesos y profesionalizar su gestión</strong>.
             </p>
           </div>

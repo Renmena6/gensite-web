@@ -10,19 +10,19 @@ const Projects = () => {
       tags: ["React", "Tailwind", "Framer Motion"],
       link: "https://cava-arch.vercel.app/"
     },
-{
+    {
       title: "Maini | Ingeniería & Topografía",
       category: "Solución Corporativa",
       description: "Dashboard informativo especializado en software técnico y soluciones avanzadas para el sector industrial.",
-      image: "/img/TSIT.png", // Nombre de la imagen que me pasaste
+      image: "/img/TSIT.png",
       tags: ["Business Intelligence", "Dashboard interactivo", "Data Visualization"],
       link: "https://sites.google.com/view/maini-ingenieria/p%C3%A1gina-principal"
     },
- {
+    {
       title: "Sitelog Pro | Libro de Obra Digital",
       category: "Backend & Gestión",
       description: "Solución diseñada para eliminar el uso de papel en la construcción. Permite el registro estructurado de eventos en obra.",
-      image: "/img/Sitelog.jpeg", // Podés cambiarla por una captura propia
+      image: "/img/Sitelog.jpeg",
       tags: ["PropTech", "SaaS MVP", "Trazabilidad Total"],
       link: "https://sitelog-pro.lovable.app/login"
     }
@@ -64,32 +64,37 @@ const Projects = () => {
               </div>
 
               {/* Contenido */}
-              <div className="p-8 flex flex-col grow">
+              <div className="p-8 flex flex-col flex-1">
                 <h3 className="text-2xl font-black text-white mb-3 group-hover:text-blue-500 transition-colors Montserrat uppercase tracking-tighter">
                   {project.title}
                 </h3>
-                <p className="text-slate-400 mb-6 line-clamp-2 text-sm leading-relaxed">
+                
+                {/* SOLUCIÓN: Quitamos 'line-clamp-2' para mostrar todo el texto */}
+                <p className="text-slate-400 mb-6 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
-                {/* Etiquetas */}
-                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="text-[9px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-1 rounded-md uppercase tracking-tighter">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {/* Empujamos los tags y el link hacia abajo para que queden alineados */}
+                <div className="mt-auto">
+                  {/* Etiquetas */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tags.map((tag, i) => (
+                      <span key={i} className="text-[9px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-1 rounded-md uppercase tracking-tighter">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Botón con Link Real */}
-                <a 
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 font-black text-white text-sm group-hover:gap-4 transition-all w-fit"
-                >
-                  VER PROYECTO <span className="text-blue-500 text-lg">→</span>
-                </a>
+                  {/* Botón con Link Real */}
+                  <a 
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-black text-white text-sm group-hover:gap-4 transition-all w-fit uppercase tracking-widest"
+                  >
+                    Ver Proyecto <span className="text-blue-500 text-lg">→</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}
