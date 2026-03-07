@@ -28,7 +28,7 @@ const AboutUs = () => {
             
             <div className="absolute top-0 right-0 h-24 w-24 bg-blue-500/10 blur-[50px]"></div>
             
-            <h4 className="font-bold text-blue-400 mb-4 Montserrat uppercase tracking-widest text-xs">
+            <h4 className="font-bold text-blue-400 mb-4 Montserrat uppercase tracking-widest text-sm">
               Visión de Ingeniería
             </h4>
             {/* Cambiamos text-sm por text-lg para igualar al bloque principal */}
@@ -45,7 +45,7 @@ const AboutUs = () => {
             <h4 className="font-black text-slate-900 mb-3 text-sm Montserrat uppercase tracking-tight">
               Más que desarrollo web
             </h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-lg leading-relaxed">
               Analizamos procesos e identificamos oportunidades para simplificar tareas y automatizar operaciones.
             </p>
           </div>
@@ -55,7 +55,7 @@ const AboutUs = () => {
             <h4 className="font-black text-slate-900 mb-3 text-sm Montserrat uppercase tracking-tight">
               Cercanía y Crecimiento
             </h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-lg leading-relaxed">
               Trabajamos codo a codo con el cliente, construyendo soluciones escalables que acompañan su evolución.
             </p>
           </div>
@@ -65,7 +65,7 @@ const AboutUs = () => {
             <h4 className="font-black text-slate-900 mb-3 text-sm Montserrat uppercase tracking-tight">
               Resultados Medibles
             </h4>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-lg leading-relaxed">
               Creemos en la tecnología que genera resultados reales y mejora la toma de decisiones.
             </p>
           </div>

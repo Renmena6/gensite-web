@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Agregamos useEffect aquí
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Hero from './components/Hero';
@@ -19,48 +19,45 @@ const Home = () => (
 );
 
 function App() {
-  // --- Lógica del Chatbot ---
   useEffect(() => {
+    // Evita que se duplique el chatbot
+    if (document.getElementById('gensite-chatbot-iframe')) return;
+
     const iframe = document.createElement('iframe');
-    iframe.src = '/gensite-chatbot.html'; // Asegurate que el archivo esté en la carpeta /public
+    iframe.id = 'gensite-chatbot-iframe';
+    
+    // Usamos la ruta directa. Asegúrate de que el archivo esté en /public
+    iframe.src = '/gensite-chatbot.html'; 
+    
+    // AJUSTE: Reducimos el ancho inicial para que no tape TODA la pantalla 
+    // y permitimos que sea siempre interactivo.
     iframe.style.cssText = `
       position: fixed; 
-      bottom: 0; 
-      right: 0;
-      width: 420px; 
-      height: 620px;
+      bottom: 20px; 
+      right: 20px;
+      width: 380px; 
+      height: 600px;
       border: none; 
+      z-index: 10000;
       background: transparent;
-      z-index: 99999;
+      pointer-events: auto; /* IMPORTANTE: Volvemos a auto para que sea clickable */
     `;
-    iframe.setAttribute('scrolling', 'no');
+    
+    iframe.setAttribute('allowtransparency', 'true');
     document.body.appendChild(iframe);
 
-    // Limpieza: elimina el chat si el componente se destruye (buena práctica)
     return () => {
       if (document.body.contains(iframe)) {
         document.body.removeChild(iframe);
       }
     };
   }, []);
-  // --------------------------
 
   return (
     <Router>
       <Routes>
-        {/* En la Home, el Navbar se ve (valor por defecto true) */}
-        <Route path="/" element={
-          <Layout> 
-            <Home />
-          </Layout>
-        } />
-        
-        {/* En Políticas, le decimos showNavbar={false} */}
-        <Route path="/politicas" element={
-          <Layout showNavbar={false}>
-            <Politicas />
-          </Layout>
-        } />
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/politicas" element={<Layout showNavbar={false}><Politicas /></Layout>} />
       </Routes>
     </Router>
   );

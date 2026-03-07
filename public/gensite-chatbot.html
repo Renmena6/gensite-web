@@ -27,7 +27,6 @@
             background: transparent;
         }
 
-        /* ─── WIDGET CONTAINER ─── */
         .widget-container {
             position: fixed;
             bottom: 24px;
@@ -38,7 +37,6 @@
             align-items: flex-end;
         }
 
-        /* ─── CHAT BUTTON ─── */
         #chatButton {
             width: 60px;
             height: 60px;
@@ -49,29 +47,13 @@
             align-items: center;
             cursor: pointer;
             border: none;
-            box-shadow:
-                0 0 0 0 rgba(37, 99, 255, 0.4),
-                0 8px 32px rgba(10, 22, 40, 0.5);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-            animation: pulse-ring 3s ease-in-out infinite;
+            box-shadow: 0 8px 32px rgba(10, 22, 40, 0.5);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
         }
 
-        @keyframes pulse-ring {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 255, 0.35), 0 8px 32px rgba(10, 22, 40, 0.5); }
-            50%       { box-shadow: 0 0 0 10px rgba(37, 99, 255, 0), 0 8px 32px rgba(10, 22, 40, 0.5); }
-        }
+        #chatButton:hover { transform: scale(1.08); }
 
-        #chatButton:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 0 0 rgba(37, 99, 255, 0), 0 12px 40px rgba(37, 99, 255, 0.4);
-            animation: none;
-        }
-
-        #chatButton svg { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s; }
-        #chatButton.open svg { transform: rotate(90deg); }
-
-        /* ─── CHAT WINDOW ─── */
         #chatWindow {
             width: 360px;
             height: 520px;
@@ -82,30 +64,11 @@
             overflow: hidden;
             background: var(--navy);
             border: 1px solid rgba(37, 99, 255, 0.25);
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,0.04) inset,
-                0 32px 80px rgba(10, 22, 40, 0.8),
-                0 0 60px rgba(37, 99, 255, 0.08);
-            transform-origin: bottom right;
-            transform: scale(0.85) translateY(16px);
-            opacity: 0;
-            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+            box-shadow: 0 32px 80px rgba(10, 22, 40, 0.8);
         }
 
-        #chatWindow.open {
-            display: flex;
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
+        #chatWindow.open { display: flex; }
 
-        @media (max-width: 480px) {
-            #chatWindow {
-                width: calc(100vw - 32px);
-                height: 75vh;
-            }
-        }
-
-        /* ─── HEADER ─── */
         .chat-header {
             padding: 16px 20px;
             background: var(--navy-mid);
@@ -113,70 +76,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-shrink: 0;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .avatar {
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--electric) 0%, var(--navy-light) 100%);
+            background: var(--electric);
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            position: relative;
         }
 
-        .avatar::after {
-            content: '';
-            position: absolute;
-            bottom: 1px;
-            right: 1px;
-            width: 9px;
-            height: 9px;
-            background: var(--success);
-            border-radius: 50%;
-            border: 2px solid var(--navy-mid);
-        }
+        .header-info .name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; color: var(--white); }
+        .header-info .status { font-size: 11px; color: var(--success); }
 
-        .header-info .name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--white);
-            letter-spacing: 0.01em;
-        }
-
-        .header-info .status {
-            font-size: 11px;
-            color: var(--success);
-            letter-spacing: 0.02em;
-            margin-top: 1px;
-        }
-
-        .close-btn {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 8px;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--gray-muted);
-            transition: background 0.2s, color 0.2s;
-        }
-        .close-btn:hover { background: rgba(255,255,255,0.12); color: var(--white); }
-
-        /* ─── MESSAGE AREA ─── */
         .message-area {
             flex-grow: 1;
             padding: 16px;
@@ -184,79 +98,27 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            scroll-behavior: smooth;
         }
 
-        .message-area::-webkit-scrollbar { width: 4px; }
-        .message-area::-webkit-scrollbar-track { background: transparent; }
-        .message-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-
-        /* ─── MESSAGES ─── */
         .user-message, .bot-message {
             max-width: 82%;
             padding: 10px 14px;
             border-radius: 16px;
             font-size: 13.5px;
             line-height: 1.55;
-            word-break: break-word;
-            animation: msg-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: msg-in 0.3s ease;
         }
 
-        @keyframes msg-in {
-            from { opacity: 0; transform: translateY(8px) scale(0.96); }
-            to   { opacity: 1; transform: translateY(0) scale(1); }
-        }
+        @keyframes msg-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .user-message {
-            align-self: flex-end;
-            background: linear-gradient(135deg, var(--electric) 0%, #1d4ed8 100%);
-            color: #fff;
-            border-bottom-right-radius: 4px;
-            box-shadow: 0 4px 16px rgba(37, 99, 255, 0.3);
-        }
+        .user-message { align-self: flex-end; background: var(--electric); color: white; border-bottom-right-radius: 4px; }
+        .bot-message { align-self: flex-start; background: var(--navy-mid); color: var(--gray-soft); border-bottom-left-radius: 4px; }
 
-        .bot-message {
-            align-self: flex-start;
-            background: var(--navy-mid);
-            color: var(--gray-soft);
-            border: 1px solid rgba(37, 99, 255, 0.15);
-            border-bottom-left-radius: 4px;
-        }
-
-        .bot-message strong { color: var(--electric-light); font-weight: 600; }
-        .bot-message a { color: var(--electric-light); text-decoration: underline; }
-
-        /* ─── LOADING DOTS ─── */
-        .loading-dots {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-            padding: 4px 2px;
-        }
-
-        .dot {
-            width: 7px; height: 7px;
-            background: var(--electric);
-            border-radius: 50%;
-            animation: dot-bounce 1.2s infinite ease-in-out;
-        }
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes dot-bounce {
-            0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-            40%            { transform: translateY(-6px); opacity: 1; }
-        }
-
-        /* ─── INPUT AREA ─── */
         .input-area {
             padding: 12px 16px;
             background: var(--navy-mid);
-            border-top: 1px solid rgba(37, 99, 255, 0.15);
             display: flex;
             gap: 8px;
-            align-items: center;
-            flex-shrink: 0;
         }
 
         #userInput {
@@ -265,427 +127,157 @@
             border: 1px solid rgba(37, 99, 255, 0.2);
             border-radius: 12px;
             padding: 10px 14px;
-            color: var(--white);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13.5px;
+            color: white;
             outline: none;
-            transition: border-color 0.2s, background 0.2s;
         }
 
-        #userInput::placeholder { color: var(--gray-muted); }
-        #userInput:focus {
-            border-color: rgba(37, 99, 255, 0.5);
-            background: rgba(255,255,255,0.08);
-        }
-        #userInput:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        #sendButton {
-            width: 40px; height: 40px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--electric) 0%, #1d4ed8 100%);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
-            box-shadow: 0 4px 14px rgba(37, 99, 255, 0.35);
-        }
-        #sendButton:hover { transform: scale(1.08); }
-        #sendButton:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
-
-        /* ─── CAPTURE FORM ─── */
-        .capture-form {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 4px 0;
-            width: 100%;
-        }
-
-        .capture-form input {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(37, 99, 255, 0.25);
-            border-radius: 10px;
-            padding: 9px 12px;
-            color: var(--white);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .capture-form input::placeholder { color: var(--gray-muted); }
-        .capture-form input:focus { border-color: rgba(37, 99, 255, 0.6); }
-
-        .capture-form button {
-            background: linear-gradient(135deg, var(--electric) 0%, #1d4ed8 100%);
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: opacity 0.2s, transform 0.2s;
-            box-shadow: 0 4px 14px rgba(37, 99, 255, 0.3);
-            letter-spacing: 0.02em;
-        }
-        .capture-form button:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        /* ─── QUICK REPLY BUTTONS ─── */
-        .quick-replies {
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-            margin-top: 10px;
-        }
-
+        .quick-replies { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
         .quick-btn {
-            background: rgba(37, 99, 255, 0.08);
-            border: 1px solid rgba(37, 99, 255, 0.3);
-            border-radius: 10px;
-            padding: 9px 13px;
+            background: rgba(37, 99, 255, 0.1);
+            border: 1px solid var(--electric);
             color: var(--electric-light);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            text-align: left;
+            padding: 8px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s, border-color 0.2s, transform 0.15s;
-            line-height: 1.4;
+            text-align: left;
+            font-size: 12px;
         }
 
-        .quick-btn:hover {
-            background: rgba(37, 99, 255, 0.18);
-            border-color: rgba(37, 99, 255, 0.6);
-            transform: translateX(3px);
-        }
-
-        .quick-btn:disabled {
-            opacity: 0.4;
-            cursor: default;
-            transform: none;
-        }
-
-        /* ─── FOOTER BRAND ─── */
-        .chat-footer {
-            text-align: center;
-            padding: 6px 0 10px;
-            font-size: 10.5px;
-            color: rgba(100, 116, 139, 0.6);
-            letter-spacing: 0.04em;
-            flex-shrink: 0;
-            background: var(--navy-mid);
-        }
-
-        .chat-footer span { color: var(--electric-light); font-weight: 600; }
+        .capture-form { display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
+        .capture-form input { margin-bottom: 5px; }
+        .capture-form button { background: var(--electric); color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <div class="widget-container">
-
     <div id="chatWindow">
-
         <div class="chat-header">
-            <div class="header-left">
-                <div class="avatar">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="#fff"/>
-                    </svg>
-                </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <div class="avatar">🤖</div>
                 <div class="header-info">
                     <div class="name">Asistente Gensite</div>
                     <div class="status">● En línea</div>
                 </div>
             </div>
-            <div class="close-btn" onclick="toggleChat()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </div>
+            <div style="color:white; cursor:pointer;" onclick="toggleChat()">✕</div>
         </div>
 
         <div id="messageArea" class="message-area"></div>
 
         <div class="input-area">
-            <input
-                type="text"
-                id="userInput"
-                placeholder="Escribí tu consulta..."
-                onkeypress="if(event.key==='Enter') sendMessage()"
-            />
-            <button id="sendButton" onclick="sendMessage()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
-            </button>
+            <input type="text" id="userInput" placeholder="Escribí tu consulta..." onkeypress="if(event.key==='Enter') sendMessage()">
         </div>
-
-        <div class="chat-footer">Powered by <span>Gensite</span> · IA Assistant</div>
     </div>
 
-    <div id="chatButton" onclick="toggleChat()">
-        <svg id="iconChat" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute; transition: opacity 0.2s, transform 0.3s;">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        <svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="position:absolute; opacity:0; transition: opacity 0.2s, transform 0.3s;">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-    </div>
+    <button id="chatButton" onclick="toggleChat()">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
 </div>
 
 <script>
-    // ── CONFIGURACIÓN CORREGIDA ──
-    const API_KEY = "AIzaSyD-eXKehbYq5_Xf1n9J1Ja1m3Vv5MFhsbw";
-    // Cambiado a gemini-1.5-flash para estabilidad
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const API_KEY = "AIzaSyAwqIvUdsGybs26GqL3UEOoAOR5qYP_rkw"; 
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemma-3-4b-it:generateContent?key=${API_KEY}`;
 
-    const SYSTEM_PROMPT = `
-Eres el asistente virtual oficial de **Gensite**, una agencia de soluciones digitales de alto impacto.
-Tu misión es responder consultas de manera profesional, innovadora y resolutiva.
+    // Esta es la "personalidad" que le inyectamos al inicio
+    const PERSONALIDAD = "Eres el asistente de Gensite. Expertos en Webs, IA y Dashboards. Responde corto, profesional y en español de Argentina. Si quieren contratar, pide Nombre y Email. IMPORTANTE: Si pides datos, incluye al final el texto [CAPTURE_LEAD].";
 
-## SOBRE GENSITE
-Gensite es una agencia especializada en potenciar el crecimiento de negocios y profesionales mediante tres pilares:
-1. **Desarrollo Web & Presencia Digital**: Sitios web a medida, landing pages y aplicaciones que convierten visitas en clientes.
-2. **Automatización & IA (n8n)**: Conectamos herramientas (WhatsApp, Gmail, Calendly, CRMs), creamos agentes de IA y chatbots que trabajan 24/7.
-3. **Control de Gestión & Dashboards**: Tableros en Excel, informes automatizados y análisis de datos para tomar decisiones con claridad.
-4. **Contenido & Comunicación Inteligente**: Marketing con IA, videos, locuciones y presentaciones profesionales de impacto.
+    let chatHistory = [];
+    let captureMode = false;
 
-## BENEFICIOS CLAVE
-- Ahorro significativo de tiempo eliminando tareas repetitivas
-- Reducción de errores manuales mediante automatizaciones
-- Presencia digital profesional y moderna
-- Atención al cliente 24/7 con agentes de IA
-
-## CAPTURA DE LEADS
-Cuando un usuario muestre interés en contratar o consultar por un servicio, indicale que para agendar una consulta personalizada gratuita necesitás su: nombre completo, rubro o tipo de negocio, y correo electrónico. Respondé con el texto exacto: [CAPTURE_LEAD]
-
-## TONO Y ESTILO
-- Formal, profesional e innovador
-- Respuestas concisas (máximo 3-4 oraciones por respuesta)
-- Usá negritas para destacar conceptos clave
-- Nunca inventes precios ni plazos específicos; invitá a agendar una consulta
-
-## CONTACTO
-Sitio web: https://gensite-web.vercel.app/
-Para más información o agendar una consulta: invitá al usuario a dejar sus datos.
-    `;
-
-    const WELCOME_TEXT = `¡Hola! 👋 Bienvenido a <strong>Gensite</strong>.<br><br>Ayudamos a negocios y profesionales a dar el salto digital. Desde una web moderna hasta automatizaciones con IA que trabajan por vos.<br><br><strong>¿Cómo puedo potenciar tu proyecto hoy?</strong>`;
-
-    const QUICK_OPTIONS = [
-        { emoji: '🌐', label: 'Quiero una web o landing page profesional.' },
-        { emoji: '🤖', label: 'Busco automatizar tareas repetitivas.' },
-        { emoji: '📊', label: 'Necesito organizar mis datos en Dashboards.' },
-        { emoji: '✍️', label: 'Quiero crear contenido con IA (Video/Fotos).' },
-    ];
-
-    // ── STATE ──
-    const chatWindow   = document.getElementById('chatWindow');
-    const messageArea  = document.getElementById('messageArea');
-    const userInput    = document.getElementById('userInput');
-    const sendButton   = document.getElementById('sendButton');
-    const iconChat     = document.getElementById('iconChat');
-    const iconClose    = document.getElementById('iconClose');
-    let   history      = [];
-    let   chatOpened   = false;
-    let   captureMode  = false;
-
-    // ── TOGGLE ──
     function toggleChat() {
-        const isOpen = chatWindow.classList.toggle('open');
-        document.getElementById('chatButton').classList.toggle('open', isOpen);
-
-        iconChat.style.opacity  = isOpen ? '0' : '1';
-        iconClose.style.opacity = isOpen ? '1' : '0';
-
-        if (isOpen && !chatOpened) {
-            chatOpened = true;
-            setTimeout(() => showWelcome(), 300);
-        }
-        if (isOpen) userInput.focus();
+        const win = document.getElementById('chatWindow');
+        const isOpen = win.classList.toggle('open');
+        if(isOpen && chatHistory.length === 0) showWelcome();
     }
 
-    // ── WELCOME WITH QUICK REPLIES ──
     function showWelcome() {
+        const area = document.getElementById('messageArea');
         const div = document.createElement('div');
         div.className = 'bot-message';
-        div.style.maxWidth = '92%';
-
-        const buttonsHTML = QUICK_OPTIONS.map((opt, i) =>
-            `<button class="quick-btn" id="qbtn_${i}" onclick="selectQuickOption(${i})">${opt.emoji} ${opt.label}</button>`
-        ).join('');
-
-        div.innerHTML = `${WELCOME_TEXT}<div class="quick-replies">${buttonsHTML}</div>`;
-        messageArea.appendChild(div);
-        scroll();
-        history.push({ role: 'model', parts: [{ text: '¡Hola! Bienvenido a Gensite. ¿Cómo puedo potenciar tu proyecto hoy?' }] });
+        div.innerHTML = `¡Hola! 👋 Bienvenido a <strong>Gensite</strong>. ¿Cómo puedo potenciar tu proyecto hoy?
+        <div class="quick-replies">
+            <button class="quick-btn" onclick="sendQuick('Quiero una web')">🌐 Quiero una web profesional</button>
+            <button class="quick-btn" onclick="sendQuick('Busco automatizar')">🤖 Busco automatizar tareas</button>
+        </div>`;
+        area.appendChild(div);
+        
+        // Inicializamos el historial con la personalidad oculta
+        chatHistory.push({role: "user", parts: [{text: PERSONALIDAD}]});
+        chatHistory.push({role: "model", parts: [{text: "Entendido, soy el asistente de Gensite."}]});
     }
 
-    function selectQuickOption(index) {
-        QUICK_OPTIONS.forEach((_, i) => {
-            const btn = document.getElementById(`qbtn_${i}`);
-            if (btn) btn.disabled = true;
-        });
-
-        const chosen = `${QUICK_OPTIONS[index].emoji} ${QUICK_OPTIONS[index].label}`;
-        addUserMessage(chosen);
-        processMessage(chosen);
+    function sendQuick(txt) {
+        document.getElementById('userInput').value = txt;
+        sendMessage();
     }
 
-    // ── ADD MESSAGES ──
-    function addUserMessage(text) {
+    function addMessage(role, text) {
+        const area = document.getElementById('messageArea');
         const div = document.createElement('div');
-        div.className = 'user-message';
-        div.textContent = text;
-        messageArea.appendChild(div);
-        scroll();
-        history.push({ role: 'user', parts: [{ text }] });
+        div.className = role === 'model' ? 'bot-message' : 'user-message';
+        div.innerHTML = text.replace(/\n/g, '<br>').replace('[CAPTURE_LEAD]', '');
+        area.appendChild(div);
+        area.scrollTop = area.scrollHeight;
     }
 
-    function addBotMessage(text) {
-        const div = document.createElement('div');
-        div.className = 'bot-message';
-        div.innerHTML = formatText(text);
-        messageArea.appendChild(div);
-        scroll();
-        history.push({ role: 'model', parts: [{ text }] });
-    }
-
-    function formatText(t) {
-        return t
-            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\n/g, '<br>');
-    }
-
-    function scroll() {
-        messageArea.scrollTop = messageArea.scrollHeight;
-    }
-
-    // ── LOADING ──
-    function showLoading() {
-        const div = document.createElement('div');
-        div.className = 'bot-message';
-        div.id = 'loadingMsg';
-        div.innerHTML = '<div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-        messageArea.appendChild(div);
-        scroll();
-    }
-    function hideLoading() {
-        const el = document.getElementById('loadingMsg');
-        if (el) el.remove();
-    }
-
-    // ── CAPTURE LEAD FORM ──
-    function showCaptureForm() {
-        captureMode = true;
-        setInputEnabled(false);
-
-        const formDiv = document.createElement('div');
-        formDiv.className = 'bot-message';
-        formDiv.style.maxWidth = '90%';
-        formDiv.innerHTML = `
-            <div style="font-size:13px; color: var(--gray-soft); margin-bottom:10px;">
-                Para agendar tu consulta gratuita, completá estos datos:
-            </div>
-            <div class="capture-form" id="captureForm">
-                <input type="text"   id="cf_name"   placeholder="Tu nombre completo" />
-                <input type="text"   id="cf_rubro" placeholder="Rubro o tipo de negocio" />
-                <input type="email"  id="cf_email" placeholder="tu@email.com" />
-                <button onclick="submitCapture()">Agendar consulta gratuita →</button>
-            </div>
-        `;
-        messageArea.appendChild(formDiv);
-        scroll();
-    }
-
-    function submitCapture() {
-        const name  = document.getElementById('cf_name').value.trim();
-        const rubro = document.getElementById('cf_rubro').value.trim();
-        const email = document.getElementById('cf_email').value.trim();
-
-        if (!name || !rubro || !email) {
-            alert('Por favor completá todos los campos.');
-            return;
-        }
-
-        document.getElementById('captureForm').style.display = 'none';
-        captureMode = false;
-        setInputEnabled(true);
-
-        addBotMessage(`✅ ¡Gracias, **${name}**! Recibimos tu consulta.\n\nUn especialista de Gensite se contactará con vos a **${email}** a la brevedad para coordinar tu sesión gratuita. ¡Que tengas un excelente día!`);
-    }
-
-    // ── SEND MESSAGE ──
     async function sendMessage() {
-        if (captureMode) return;
-        const text = userInput.value.trim();
-        if (!text) return;
-        userInput.value = '';
-        addUserMessage(text);
-        processMessage(text);
-    }
+        if(captureMode) return;
+        const input = document.getElementById('userInput');
+        const msg = input.value.trim();
+        if(!msg) return;
 
-    async function processMessage(text) {
-        if (captureMode) return;
-        setInputEnabled(false);
-        showLoading();
-
-        const contents = [...history];
+        addMessage('user', msg);
+        chatHistory.push({role: "user", parts: [{text: msg}]});
+        input.value = '';
 
         try {
-            const res = await fetchWithRetry({
-                contents,
-                systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] }
-            });
-
-            const botText = res?.candidates?.[0]?.content?.parts?.[0]?.text
-                ?? 'Lo siento, no pude procesar tu consulta. Por favor intentá de nuevo.';
-
-            hideLoading();
-
-            if (botText.includes('[CAPTURE_LEAD]')) {
-                const cleaned = botText.replace('[CAPTURE_LEAD]', '').trim();
-                if (cleaned) addBotMessage(cleaned);
-                showCaptureForm();
-            } else {
-                addBotMessage(botText);
-            }
-
-        } catch (e) {
-            hideLoading();
-            addBotMessage('Hubo un error de conexión. Por favor, intentá de nuevo en un momento.');
-            console.error(e);
-        } finally {
-            if (!captureMode) setInputEnabled(true);
-        }
-    }
-
-    function setInputEnabled(on) {
-        userInput.disabled  = !on;
-        sendButton.disabled = !on;
-        if (on) userInput.focus();
-    }
-
-    async function fetchWithRetry(payload, retries = 3) {
-        for (let i = 0; i < retries; i++) {
-            const res = await fetch(API_URL, {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                body: JSON.stringify({ contents: chatHistory }) 
             });
-            if (res.ok) return res.json();
-            if (res.status === 429 && i < retries - 1) {
-                await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
-                continue;
+
+            const data = await response.json();
+            
+            if (data.error) {
+                console.error(data.error);
+                addMessage('model', "Error de cuota o clave. Reintenta.");
+                return;
             }
-            throw new Error(`HTTP ${res.status}`);
+
+            const botText = data.candidates[0].content.parts[0].text;
+
+            if (botText.includes('[CAPTURE_LEAD]')) {
+                addMessage('model', botText);
+                showForm();
+            } else {
+                addMessage('model', botText);
+                chatHistory.push({role: "model", parts: [{text: botText}]});
+            }
+        } catch (e) {
+            addMessage('model', "Error de conexión.");
         }
     }
-</script>
 
+    function showForm() {
+        captureMode = true;
+        const div = document.createElement('div');
+        div.className = 'bot-message';
+        div.innerHTML = `<div class="capture-form">
+            <input id="f_name" placeholder="Tu Nombre" style="width:100%; padding:5px; margin-bottom:5px;">
+            <input id="f_mail" placeholder="Tu Email" style="width:100%; padding:5px; margin-bottom:5px;">
+            <button onclick="saveLead()" style="width:100%; background:#2563ff; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer;">Enviar datos</button>
+        </div>`;
+        document.getElementById('messageArea').appendChild(div);
+    }
+
+    function saveLead() {
+        const name = document.getElementById('f_name').value;
+        if(!name) return alert("Poné tu nombre");
+        addMessage('model', `¡Excelente ${name}! Un humano de Gensite te va a contactar pronto.`);
+        captureMode = false;
+    }
+</script>
 </body>
 </html>
