@@ -20,9 +20,21 @@ const Footer = () => {
           <div>
             <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-6 Montserrat">Servicios</h4>
             <ul className="text-slate-500 text-sm space-y-4 font-medium">
-              <li className="hover:text-blue-600 transition-colors cursor-pointer">Desarrollo Web Premium</li>
-              <li className="hover:text-blue-600 transition-colors cursor-pointer">Agentes de IA & Automatización</li>
-              <li className="hover:text-blue-600 transition-colors cursor-pointer">E-commerce Escalable</li>
+              <li>
+                <a href="#servicios" className="hover:text-blue-600 transition-colors cursor-pointer">
+                  Desarrollo Web Premium
+                </a>
+              </li>
+              <li>
+                <a href="#servicios" className="hover:text-blue-600 transition-colors cursor-pointer">
+                  Agentes de IA & Automatización
+                </a>
+              </li>
+              <li>
+                <a href="#servicios" className="hover:text-blue-600 transition-colors cursor-pointer">
+                  E-commerce Escalable
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -30,10 +42,16 @@ const Footer = () => {
           <div>
             <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-6 Montserrat">Explorar</h4>
             <ul className="text-slate-500 text-sm space-y-4 font-medium">
-              <li className="hover:text-blue-600 transition-colors cursor-pointer">Proyectos</li>
-              <li className="hover:text-blue-600 transition-colors cursor-pointer">Sobre Nosotros</li>
-              
-              {/* EL CAMBIO ESTÁ AQUÍ */}
+              <li>
+                <a href="#proyectos" className="hover:text-blue-600 transition-colors cursor-pointer">
+                  Proyectos
+                </a>
+              </li>
+              <li>
+                <a href="#sobre-nosotros" className="hover:text-blue-600 transition-colors cursor-pointer">
+                  Sobre Nosotros
+                </a>
+              </li>
               <li>
                 <a 
                   href="/politicas" 
